@@ -45,14 +45,23 @@ def rename_contact():
         lines = f.readlines()
         for line in lines:
             if con1 in line:
-                with open(path, 'a', encoding='UTF-8') as fo:
-                    id = input('Введите новое id: ')
-                    name = input('Введите новое Имя: ')
-                    phone = input('Введите новый номер: ')
-                    comment = input('Введите новый комментарий: ')
-                    contacts.append(f'{id}. {name} : {phone} : {comment}')
-                    for contact in contacts:
-                        fo.writelines((str(contact + '\n')))
+                new = input('Введите новый контакт ')
+                for i in contacts:
+                    contacts[i] = new
+                    with open(path, 'w', encoding='UTF-8') as fo:
+                        fo.writelines((str(new + '\n')))
+
+
+
+                # with open(path, 'a', encoding='UTF-8') as fo:
+                #     id = input('Введите новое id: ')
+                #     name = input('Введите новое Имя: ')
+                #     phone = input('Введите новый номер: ')
+                #     comment = input('Введите новый комментарий: ')
+                #     contacts.append(f'{id}. {name} : {phone} : {comment}')
+                #     for contact in contacts:
+                #         fo.writelines((str(contact + '\n')))
+
 
 def find_contact():
     while True:
